@@ -2,6 +2,8 @@
 
 TODO: Write a gem description
 
+* Format: https://code.google.com/p/opentx/source/browse/trunk/src/logs.cpp
+
 ## Installation
 
 Add this line to your application's Gemfile:
