@@ -30,6 +30,28 @@ module OpenTx
         @times ||= @rows.map { |row| Time.strptime("#{row['Date']} #{row['Time']}", '%Y-%m-%d %H:%M:%S.%N') }
       end
 
+      def swr?
+        swr.any?
+      end
+
+      def swr
+        @swr ||= int_field('SWR')
+      end
+
+      def rssi?
+        rssi.any?
+      end
+
+      def rssi
+        @rssi ||= int_field('RSSI')
+      end
+
+      private
+
+      def int_field(name)
+        @rows.map { |row| row[name].to_i }
+      end
+
     end
 
   end
