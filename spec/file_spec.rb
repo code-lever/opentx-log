@@ -10,7 +10,7 @@ describe OpenTx::Log::File do
 
     it { should have(1).sessions }
 
-    its(:duration) { should be_within(0.1).of(86) }
+    its(:duration) { should be_within(0.1).of(85.2) }
 
   end
 
