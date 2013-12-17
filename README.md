@@ -2,7 +2,7 @@
 
 TODO: Write a gem description
 
-* Format: https://code.google.com/p/opentx/source/browse/trunk/src/logs.cpp
+* Formats: https://github.com/opentx/opentx/blob/master/src/logs.cpp
 
 ## Installation
 
