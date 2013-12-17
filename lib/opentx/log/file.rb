@@ -21,7 +21,7 @@ module OpenTx
         @sessions = []
 
         open(uri, 'r') do |file|
-          session = CSV.new(file, { headers: true }).map { |csv| csv }
+          session = CSV.new(file, headers: true).map { |csv| csv }
 
           # a little sanity checking
           raise 'No session data found' if session.empty?
