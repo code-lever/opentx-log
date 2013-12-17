@@ -62,7 +62,42 @@ module OpenTx
         @a2 ||= float_field('A2')
       end
 
+      def temp1?
+        int_field('Temp1').any? { |t| t != 0 }
+      end
+
+      def temp1(unit = :c)
+        @temp1 ||= int_field('Temp1')
+        @temp1.map { |t| convert_temperature(t, unit) }
+      end
+
+      def temp2?
+        int_field('Temp2').any? { |t| t != 0 }
+      end
+
+      def temp2(unit = :c)
+        @temp2 ||= int_field('Temp2')
+        @temp2.map { |t| convert_temperature(t, unit) }
+      end
+
+      def fuel?
+        fuel.any? { |f| f != 0 }
+      end
+
+      def fuel
+        @fuel ||= int_field('Fuel')
+      end
+
       private
+
+      def convert_temperature(celsius, unit)
+        case unit
+        when :f
+          (celsius * (9.0 / 5.0)) + 32
+        else
+          celsius
+        end
+      end
 
       def float_field(name)
         @rows.map { |row| row[name].to_f }

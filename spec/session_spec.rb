@@ -48,6 +48,29 @@ describe OpenTx::Log::Session do
 
     its(:a2?) { should be_false }
 
+    its(:temp1?) { should be_true }
+
+    it 'should have selected Temp1 temperatures (in celcius)' do
+      expect(subject.temp1(:c)[0]).to be_within(0.1).of(22)
+      expect(subject.temp1(:c)[27]).to be_within(0.1).of(23)
+      expect(subject.temp1(:c)[45]).to be_within(0.1).of(33)
+      expect(subject.temp1(:c)[82]).to be_within(0.1).of(33)
+    end
+
+    it 'should have selected Temp1 temperatures (in fahrenheit)' do
+      expect(subject.temp1(:f)[0]).to be_within(0.1).of(71.6)
+      expect(subject.temp1(:f)[27]).to be_within(0.1).of(73.4)
+      expect(subject.temp1(:f)[45]).to be_within(0.1).of(91.4)
+      expect(subject.temp1(:f)[82]).to be_within(0.1).of(91.4)
+    end
+
+    its(:fuel?) { should be_true }
+
+    it 'should have selected fuel values' do
+      expect(subject.fuel[20]).to eql(100)
+      expect(subject.fuel[65]).to eql(100)
+    end
+
   end
 
 end
