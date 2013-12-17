@@ -46,7 +46,27 @@ module OpenTx
         @rssi ||= int_field('RSSI')
       end
 
+      def a1?
+        a1.any? { |v| v > 0.0 }
+      end
+
+      def a1
+        @a1 ||= float_field('A1')
+      end
+
+      def a2?
+        a2.any? { |v| v > 0.0 }
+      end
+
+      def a2
+        @a2 ||= float_field('A2')
+      end
+
       private
+
+      def float_field(name)
+        @rows.map { |row| row[name].to_f }
+      end
 
       def int_field(name)
         @rows.map { |row| row[name].to_i }

@@ -12,6 +12,10 @@ describe OpenTx::Log::Session do
 
     its(:rssi?) { should be_true }
 
+    its(:a1?) { should be_true }
+
+    its(:a2?) { should be_false }
+
   end
 
 end
