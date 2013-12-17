@@ -88,6 +88,24 @@ module OpenTx
         @fuel ||= int_field('Fuel')
       end
 
+      def cell_volts?
+        cell_volts.any? { |v| v > 0.0 }
+      end
+
+      def cell_volts
+        @cell_volts ||= float_field('Cell volts')
+      end
+
+      # @param index [1..6]
+      def cell?(index)
+        cell(index).any? { |v| v > 0.0 }
+      end
+
+      # @param index [1..6]
+      def cell(index)
+        float_field("Cell #{index}")
+      end
+
       private
 
       def convert_temperature(celsius, unit)

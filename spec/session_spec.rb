@@ -71,6 +71,32 @@ describe OpenTx::Log::Session do
       expect(subject.fuel[65]).to eql(100)
     end
 
+    its(:cell_volts?) { should be_true }
+
+    it 'should have selected cell voltages' do
+      expect(subject.cell_volts[0]).to be_within(0.1).of(7.6)
+      expect(subject.cell_volts[23]).to be_within(0.1).of(7.6)
+      expect(subject.cell_volts[42]).to be_within(0.1).of(7.6)
+      expect(subject.cell_volts[80]).to be_within(0.1).of(7.6)
+    end
+
+    it 'should have selected cells' do
+      expect(subject.cell?(1)).to be_true
+      expect(subject.cell(1)[0]).to be_within(0.01).of(3.82)
+      expect(subject.cell(1)[23]).to be_within(0.01).of(3.82)
+      expect(subject.cell(1)[42]).to be_within(0.01).of(3.82)
+      expect(subject.cell(1)[80]).to be_within(0.01).of(3.82)
+      expect(subject.cell?(2)).to be_true
+      expect(subject.cell(2)[0]).to be_within(0.01).of(3.82)
+      expect(subject.cell(2)[23]).to be_within(0.01).of(3.82)
+      expect(subject.cell(2)[42]).to be_within(0.01).of(3.82)
+      expect(subject.cell(2)[80]).to be_within(0.01).of(3.82)
+      expect(subject.cell?(3)).to be_false
+      expect(subject.cell?(4)).to be_false
+      expect(subject.cell?(5)).to be_false
+      expect(subject.cell?(6)).to be_false
+    end
+
   end
 
 end
