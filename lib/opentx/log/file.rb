@@ -13,11 +13,11 @@ module OpenTx
       #
       # @param uri URI to file to read
       # @return [OpenTx::Log::File] loaded file if the file is an OpenTx log file, nil otherwise
-      def self.opentx? uri
+      def self.opentx?(uri)
         File.new(uri) rescue nil
       end
 
-      def initialize uri
+      def initialize(uri)
         @sessions = []
 
         open(uri, 'r') do |file|
