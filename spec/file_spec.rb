@@ -21,7 +21,7 @@ describe OpenTx::Log::File do
       files.should have(7).files
 
       files.each do |f|
-        expect(OpenTx::Log::File.opentx?(f)).to be_false
+        expect(OpenTx::Log::File.opentx?(f)).to be_falsey
       end
     end
 
@@ -30,7 +30,7 @@ describe OpenTx::Log::File do
       files.should have(1).file
 
       files.each do |f|
-        expect(OpenTx::Log::File.opentx?(f)).to be_true
+        expect(OpenTx::Log::File.opentx?(f)).to be_truthy
       end
     end
 

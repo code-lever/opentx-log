@@ -21,7 +21,7 @@ describe OpenTx::Log::Session do
       expect(subject.milliseconds[70]).to be_within(0.1).of(70980)
     end
 
-    its(:swr?) { should be_true }
+    its(:swr?) { should be(true) }
 
     it 'should have selected SWR values' do
       expect(subject.swr[0]).to eql(0)
@@ -29,7 +29,7 @@ describe OpenTx::Log::Session do
       expect(subject.swr[79]).to eql(1)
     end
 
-    its(:rssi?) { should be_true }
+    its(:rssi?) { should be(true) }
 
     it 'should have selected RSSI values' do
       expect(subject.rssi[0]).to eql(81)
@@ -37,7 +37,7 @@ describe OpenTx::Log::Session do
       expect(subject.rssi[53]).to eql(85)
     end
 
-    its(:a1?) { should be_true }
+    its(:a1?) { should be(true) }
 
     it 'should have selected A1 voltages' do
       expect(subject.a1[0]).to be_within(0.01).of(7.45)
@@ -46,9 +46,9 @@ describe OpenTx::Log::Session do
       expect(subject.a1[82]).to be_within(0.01).of(7.45)
     end
 
-    its(:a2?) { should be_false }
+    its(:a2?) { should be(false) }
 
-    its(:temp1?) { should be_true }
+    its(:temp1?) { should be(true) }
 
     it 'should have selected Temp1 temperatures (in celcius)' do
       expect(subject.temp1(:c)[0]).to be_within(0.1).of(22)
@@ -64,14 +64,14 @@ describe OpenTx::Log::Session do
       expect(subject.temp1(:f)[82]).to be_within(0.1).of(91.4)
     end
 
-    its(:fuel?) { should be_true }
+    its(:fuel?) { should be(true) }
 
     it 'should have selected fuel values' do
       expect(subject.fuel[20]).to eql(100)
       expect(subject.fuel[65]).to eql(100)
     end
 
-    its(:cell_volts?) { should be_true }
+    its(:cell_volts?) { should be(true) }
 
     it 'should have selected cell voltages' do
       expect(subject.cell_volts[0]).to be_within(0.1).of(7.6)
@@ -81,20 +81,20 @@ describe OpenTx::Log::Session do
     end
 
     it 'should have selected cells' do
-      expect(subject.cell?(1)).to be_true
+      expect(subject.cell?(1)).to be(true)
       expect(subject.cell(1)[0]).to be_within(0.01).of(3.82)
       expect(subject.cell(1)[23]).to be_within(0.01).of(3.82)
       expect(subject.cell(1)[42]).to be_within(0.01).of(3.82)
       expect(subject.cell(1)[80]).to be_within(0.01).of(3.82)
-      expect(subject.cell?(2)).to be_true
+      expect(subject.cell?(2)).to be(true)
       expect(subject.cell(2)[0]).to be_within(0.01).of(3.82)
       expect(subject.cell(2)[23]).to be_within(0.01).of(3.82)
       expect(subject.cell(2)[42]).to be_within(0.01).of(3.82)
       expect(subject.cell(2)[80]).to be_within(0.01).of(3.82)
-      expect(subject.cell?(3)).to be_false
-      expect(subject.cell?(4)).to be_false
-      expect(subject.cell?(5)).to be_false
-      expect(subject.cell?(6)).to be_false
+      expect(subject.cell?(3)).to be(false)
+      expect(subject.cell?(4)).to be(false)
+      expect(subject.cell?(5)).to be(false)
+      expect(subject.cell?(6)).to be(false)
     end
 
   end
