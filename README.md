@@ -1,4 +1,4 @@
-# OpenTx::Log [![Build Status](https://travis-ci.org/code-lever/opentx-log.png)](https://travis-ci.org/code-lever/opentx-log) [![Dependency Status](https://gemnasium.com/code-lever/opentx-log.png)](https://gemnasium.com/code-lever/opentx-log) [![Code Climate](https://codeclimate.com/github/code-lever/opentx-log.png)](https://codeclimate.com/github/code-lever/opentx-log)
+# OpenTx::Log [![Build Status](https://travis-ci.org/code-lever/opentx-log.png)](https://travis-ci.org/code-lever/opentx-log) [![Code Climate](https://codeclimate.com/github/code-lever/opentx-log.png)](https://codeclimate.com/github/code-lever/opentx-log)
 
 TODO: Write a gem description
 
